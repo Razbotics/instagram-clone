@@ -1,15 +1,16 @@
 import React from "react";
-import { StyleSheet, Button } from "react-native";
+import { StyleSheet } from "react-native";
+import AppButton from "../components/AppButton";
 import Screen from "./Screen";
 
 function Landing({ navigation }) {
   return (
     <Screen style={styles.container}>
-      <Button
+      <AppButton
         title="Register"
         onPress={() => navigation.navigate("Register")}
       />
-      <Button title="Login" onPress={() => navigation.navigate("Login")} />
+      <AppButton title="Login" onPress={() => navigation.navigate("Login")} />
     </Screen>
   );
 }

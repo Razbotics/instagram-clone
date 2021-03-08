@@ -1,30 +1,21 @@
 import React from "react";
 import { useState } from "react";
+import firebase from "firebase";
 import AppTextInput from "../components/AppTextInput";
 import Screen from "./Screen";
 import AppButton from "../components/AppButton";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../store/users/reducer";
+import { loginUser } from "../store/users/reducer";
 
-function Register({}) {
-  const dispatch = useDispatch();
-  const [name, setName] = useState("");
+function Login({}) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
 
-  const handleSubmit = async () => {
-    dispatch(registerUser({ name, email, password }));
-  };
+  const handleSubmit = () => dispatch(loginUser({ email, password }));
 
   return (
     <Screen>
-      <AppTextInput
-        icon="account"
-        placeholder="Name"
-        autoCorrect={false}
-        autoCompleteType="off"
-        onChangeText={(name) => setName(name)}
-      />
       <AppTextInput
         icon="email"
         placeholder="Email"
@@ -44,9 +35,9 @@ function Register({}) {
         onChangeText={(password) => setPassword(password)}
       />
 
-      <AppButton title="Register" onPress={handleSubmit} />
+      <AppButton title="Login" onPress={handleSubmit} />
     </Screen>
   );
 }
 
-export default Register;
+export default Login;
