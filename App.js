@@ -1,17 +1,11 @@
-import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import AuthNavigator from "./app/navigation/AuthNavigator";
-import * as firebase from "firebase";
-import firebaseConfig from "./app/config/firebase";
-
-if (firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig);
-}
+import AppContext from "./app/context/AppContext";
+import MainNavigator from "./app/navigation/MainNavigator";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <AuthNavigator />
-    </NavigationContainer>
+    <AppContext>
+      <MainNavigator />
+    </AppContext>
   );
 }
